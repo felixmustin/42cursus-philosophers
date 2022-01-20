@@ -43,7 +43,7 @@ void	philo_display(t_philo *philo, char *str)
 		return ;
 	pthread_mutex_lock(&philo->data->writing);
 	time = timestamp(philo);
-	printf("%lu ms %d%s", time, philo->pos, str);
+	printf("%lu %d%s", time, philo->pos, str);
 	pthread_mutex_unlock(&philo->data->writing);
 }
 
@@ -74,4 +74,23 @@ int	ft_atoi(const char *str)
 			return (0);
 	}
 	return (signe * nb);
+}
+
+void	*ft_calloc(int count, int size)
+{
+	void	*ptr;
+	int		i;
+	char	*str;
+
+	ptr = malloc(count * size);
+	if (!ptr)
+		return (0);
+	i = 0;
+	str = (char *)ptr;
+	while (i < (count * size))
+	{
+		str[i] = 0;
+		i++;
+	}
+	return ((void *) ptr);
 }

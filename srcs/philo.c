@@ -31,19 +31,9 @@ int	philo_creator(t_data *data)
 	if (philo_check_death(data, philo))
 	{
 		data->mutex_lock = 1;
-		pthread_mutex_lock(&philo->data->writing);
 		pthread_mutex_unlock(&philo->data->lock);
 	}
 	philo_check_exit(data, philo);
-	return (0);
-}
-
-int	simulation_stop(t_philo *philo)
-{
-	pthread_mutex_lock(&philo->data->lock);
-	if (philo->data->dead || philo->data->all_eat)
-		return (1);
-	pthread_mutex_unlock(&philo->data->lock);
 	return (0);
 }
 
@@ -94,6 +84,15 @@ int	philo_check_death(t_data *data, t_philo *philo)
 			pthread_mutex_unlock(&data->lock);
 		}
 	}
+}
+
+int	simulation_stop(t_philo *philo)
+{
+	pthread_mutex_lock(&philo->data->lock);
+	if (philo->data->dead || philo->data->all_eat)
+		return (1);
+	pthread_mutex_unlock(&philo->data->lock);
+	return (0);
 }
 
 void	philo_check_exit(t_data *data, t_philo *philos)

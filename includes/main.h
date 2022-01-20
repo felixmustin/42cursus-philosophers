@@ -54,7 +54,7 @@ void		init_philos(t_data *data);
 int			init_mutex(t_data *data);
 int			data_init(int argc, char **args, t_data *data);
 int			check_args(t_data *data, char **args, int argc);
-int one_philo(t_data *data);
+int			one_philo(t_data *data);
 
 //Philo
 int			philo_creator(t_data *data);
@@ -73,5 +73,6 @@ long int	timestamp(t_philo *philo);
 void		ft_usleep(t_philo *philo, useconds_t time);
 void		philo_display(t_philo *philo, char *str);
 int			ft_atoi(const char *str);
+void		*ft_calloc(int count, int size);
 
 #endif

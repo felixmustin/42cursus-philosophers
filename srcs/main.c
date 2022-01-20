@@ -30,10 +30,10 @@ int	main(int argc, char **argv)
 	int		error;
 
 	if (argc < 5 || argc > 6)
-		return (printf("Wrong number of arguments"));
+		return (printf("Wrong number of arguments\n"));
 	error = data_init(argc, argv, &data);
 	if (error == 1)
-		return (printf("Error in arguments"));
+		return (printf("Error in arguments\n"));
 	if (error == 2)
 		return (0);
 	if (error == 3)

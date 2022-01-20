@@ -62,14 +62,14 @@ int	data_init(int argc, char **args, t_data *data)
 	data->mutex_lock = 0;
 	data->forks = NULL;
 	data->philos = NULL;
-	data->philos = malloc(sizeof(*(data->philos)) * data->nbr_philo);
+	data->philos = ft_calloc(sizeof(*(data->philos)), data->nbr_philo);
 	if (!data->philos)
 		return (3);
 	init_philos(data);
 	return (init_mutex(data));
 }
 
-int one_philo(t_data *data)
+int	one_philo(t_data *data)
 {
 	if (data->nbr_philo == 1)
 	{
